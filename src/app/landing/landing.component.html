@@ -1,0 +1,26 @@
+<!--<section>
+  <h2> Wyszukiwarka grupy 5</h2>
+  <div>
+    <input name="searchInput" type="text" placeholder="Wprowadź szukane dane" size="80%">
+    <a mat-icon-button routerLink="/home">
+      <mat-icon aria-label="Szukaj">search</mat-icon>
+    </a>
+  </div>
+</section>
+-->
+
+<form class="form">
+
+  <h3> Wyszukiwarka EduFabu</h3>
+  <div>
+  <mat-form-field class="full-width" appearance="outline">
+    <input matInput name="searchInput" placeholder="Szukaj..." aria-label="Szukaj" [formControl]="searchFormControl">
+  </mat-form-field>
+  <a mat-icon-button routerLink="/search">
+    <mat-icon aria-label="Szukaj">search</mat-icon>
+  </a>
+  </div>
+
+<!--  wszystko:
+  <app-search *ngFor='let item of articleTilesInfo' [postTile]=item></app-search> -->
+</form>

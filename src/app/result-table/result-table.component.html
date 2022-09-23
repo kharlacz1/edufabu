@@ -1,0 +1,21 @@
+<mat-table [dataSource]="dataSource" class="none">
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Obraz </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="author">
+    <mat-header-cell *matHeaderCellDef> Nazwisko </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="desc">
+    <mat-header-cell *matHeaderCellDef> desc </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.desc}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
