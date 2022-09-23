@@ -12,10 +12,10 @@ export class ResultTableComponent implements OnInit {
 
   displayedColumns: string[] = [
     'name',
+    'img',
     'author',
-    'desc',
-    'reference',
-    'img'
+   /* 'desc'
+    'reference' */
   ];
 
   dataSource: MatTableDataSource<Artifact> = new MatTableDataSource<Artifact>();
@@ -25,7 +25,20 @@ export class ResultTableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('this.artifactService.data:')
+    console.log(this.artifactService.data)
     this.dataSource.data = this.artifactService.data;
+  }
+
+  public concateInnerHTML(path: string): string | null {
+    if(path){
+      let front = "<img src='./assets/img/";
+      let result = front + path + ".jpg'>";
+      console.log('result:')
+      console.log(result)
+      return result;
+    }
+    return null;
   }
 
 }

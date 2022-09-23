@@ -1,20 +1,30 @@
-<mat-table [dataSource]="dataSource" class="none">
-
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-bottom: 10px;" >
+  <!-- class="none" -->
   <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Obraz </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Nazwa </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="img">
+    <mat-header-cell *matHeaderCellDef> img </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <img src='./assets/img/{{element.img}}.jpg'> </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="author">
     <mat-header-cell *matHeaderCellDef> Nazwisko </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="desc">
+<!--  <ng-container matColumnDef="opis">
     <mat-header-cell *matHeaderCellDef> desc </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.desc}} </mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="odniesienie">
+    <mat-header-cell *matHeaderCellDef> reference </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.reference}} </mat-cell>
+  </ng-container>
+-->
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 

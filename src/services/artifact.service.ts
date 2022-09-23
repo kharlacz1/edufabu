@@ -3,10 +3,6 @@ import {Artifact} from '../app/Interfaces/artifact';
 
 
 @Injectable({
-  providedIn: 'root',
-})
-
-@Injectable({
   providedIn: 'root'
 })
 export class ArtifactService {
