@@ -14,23 +14,22 @@
   <h3> <b>Wyszukaj w EduFabu:</b></h3>
 
   <div class="container" fxLayout="column" fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="start">
-    <div class="flex-container" fxLayout="row">
 
-      <mat-form-field class="full-width" color="primary">
+    <div class="flex-container" fxLayout="row" fxFlex="80%">
+
+      <mat-form-field class="full-width" color="primary" >
         <mat-label>Wprowadź szukane dane</mat-label>
        <!-- <input matInput name="searchInput" placeholder="Szukaj..." [formControl]="searchFormControl"> -->
         <input matInput #searchInput (input)="searchThis()" name="searchInput" id="searchFormControl" name="searchFormControl" formControlName="searchFormControl">
       </mat-form-field>
-<!--
-      <mat-form-field class="full-width">
-        <input  name="searchInput" placeholder="Szukaj..." class="input" aria-label="Szukaj" [formControl]="searchFormControl">
-      </mat-form-field> -->
 
+      <div class="small-width">
       <button type="submit">
        <a mat-icon-button routerLink="/search" >
         <mat-icon aria-label="Szukaj">search</mat-icon>
         </a>
       </button>
+      </div>
 
     </div>
 
@@ -38,11 +37,12 @@
     <div class="container">
 
       <h3> <b>Lub wybierz:</b></h3>
+
       <mat-tree [dataSource]="nodeDataSource" [treeControl]="treeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
           <li class="mat-tree-node">
-            <button mat-icon-button disabled>-</button>
-            {{node.name}}
+            <!-- <button mat-icon-button disabled>-</button> -->
+            <span class="mat-tree-button">{{node.name}}</span>
           </li>
         </mat-tree-node>
 
@@ -68,7 +68,8 @@
   </div>
 
 
-<!--  <app-result-all [searchString]="searchForm"></app-result-all> -->
-  <app-result-all></app-result-all>
-
 </form>
+
+<!--  <app-result-all [searchString]="searchForm"></app-result-all> -->
+<app-result-all></app-result-all>
+

@@ -1,28 +1,41 @@
 .form {
   min-width: 150px;
-  max-width: 500px;
+  max-width: 700px;
   width: 100%;
   margin: 10px
 }
 
 .full-width {
   width: 100%;
-  height: 200%;
 }
 
+.small-width {
+  height: 60%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+/*  background-color: rgba(255, 192, 203, 0.58); */
+}
+/*
+.flex-container > * {
+  width: 100%;
+}
+*/
 .input {
   width: 80%;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-
-  .mat-focused .mat-form-field-ripple {
+.mat-focused .mat-form-field-ripple {
     background-color: darkblue !important;
-  }
-  .mat-focused .mat-form-field-label {
+}
+
+.mat-focused .mat-form-field-label {
     color: darkblue !important;
-  }
+}
 
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
   color: darkblue !important;
@@ -30,10 +43,10 @@
 
 
 .mat-form-field-label{
-  color:green !important;
+  color:darkblue !important;
 }
 .mat-form-field-underline{
-  background-color:green !important;
+  background-color:darkblue !important;
 }
 
 .mat-tree {
@@ -42,6 +55,16 @@
 
 .mat-tree-node {
   color: black;
+}
+
+.mat-tree-button {
+  border-width: 1px;
+  border-style: outset;
+  border-color: lightgrey;
+  border-image: initial;
+  padding: 5px 10px;
+  margin: 0px;
+  cursor: pointer;
 }
 
 .example-tree-invisible {
@@ -55,14 +78,11 @@
   list-style-type: none;
 }
 
-.mat-form-field-outline-start, .mat-form-field-outline-end {
-  color: #af1282 !important;
-}
 
 .mat-form-field-appearance-outline .mat-form-field-outline-thick {
-  color: green;
+  color: grey;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: blue;
+  color: grey;
 }

@@ -1,16 +1,9 @@
 <br>
 <hr>
-<div><b>Wszystkie dane:</b></div>
+<div><b>Dane API Zachęta:</b></div>
 
 <table>
   <tbody>
-<!--  <tr>
-    <td><span class="item"><b>typ</b></span></td>
-    <td><span class="item"><b>nazwa</b></span></td>
-    <td><span class="item"><b>data</b></span></td>
-    <td><span class="item"><b>nr</b></span></td>
-    <td><span class="item"><b>tytuł</b></span></td>
-  </tr> -->
   <tr *ngFor="let artifacts of dataItems">
       <div *ngFor="let items of artifacts.data; let i = index;" >
         <td><span class="item">{{items.type}}</span></td>
