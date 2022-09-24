@@ -6,6 +6,7 @@ export class Artifact {
   public readonly desc: string = "";
   public readonly reference: string = "";
   public readonly img: string = "";
+  public readonly tags: string[] = [];
 
   public constructor(
     id: number,
@@ -14,6 +15,7 @@ export class Artifact {
     desc: string,
     reference: string,
     img: string,
+    tags: string[],
   ) {
     this.id = id;
     this.name = name;
@@ -21,5 +23,6 @@ export class Artifact {
     this.desc = desc;
     this.reference = reference;
     this.img = img;
+    this.tags = tags;
   }
 }

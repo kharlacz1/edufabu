@@ -1,0 +1,31 @@
+<h3>Wybrane moduły:</h3>
+
+<div class="container" fxLayout="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="20px" fxLayoutAlign="space-evenly center">
+
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="20px" fxLayoutAlign="space-evenly center">
+
+<img src='./assets/img/1.jpg'>
+<button mat-stroked-button class="btn btn-secondary" (click)="removeFromScenario(1)">
+  Usuń ze scenariusza
+</button>
+
+<img src='./assets/img/2.jpg'>
+<button mat-stroked-button class="btn btn-secondary" (click)="removeFromScenario(2)">
+  Usuń ze scenariusza
+</button>
+
+  <img src='./assets/img/0.jpg'>
+<button mat-stroked-button class="btn btn-secondary" (click)="removeFromScenario(0)">
+  Usuń ze scenariusza
+</button>
+
+</div>
+
+  <div fxFlex="100px">
+  <button mat-stroked-button class="btn btn-secondary" (click)="exportScenario()">
+    <span class="material-icons">file_download</span>
+    Wyeksportuj scenariusz
+  </button>
+  </div>
+
+</div>

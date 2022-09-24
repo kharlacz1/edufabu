@@ -1,0 +1,43 @@
+<br>
+<hr>
+<div><b>Wszystkie dane:</b></div>
+
+<table>
+  <tbody>
+<!--  <tr>
+    <td><span class="item"><b>typ</b></span></td>
+    <td><span class="item"><b>nazwa</b></span></td>
+    <td><span class="item"><b>data</b></span></td>
+    <td><span class="item"><b>nr</b></span></td>
+    <td><span class="item"><b>tytuł</b></span></td>
+  </tr> -->
+  <tr *ngFor="let artifacts of dataItems">
+      <div *ngFor="let items of artifacts.data; let i = index;" >
+        <td><span class="item">{{items.type}}</span></td>
+        <td><span class="item"><i>{{items.attributes?.Category?.Name}}</i></span></td>
+        <td><span class="item"><i>rok: </i>{{items.attributes?.Date}}</span></td>
+        <td><span class="item"><i>nr: </i>{{items.attributes?.InvNo}}</span></td>
+        <td><span class="item">{{items.attributes?.Title[0]?.Title}}</span></td>
+      </div>
+  </tr>
+  </tbody>
+</table>
+
+<!--
+<mat-table [dataSource]="dataSource" #table class="none mat-elevation-z8" style="margin: 10px;" >
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Nazwa </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <table>
+        <tr><td>{{element}}</td></tr>
+        <tr><td><b>{{element.data}}</b></td></tr>
+      </table>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+-->

@@ -1,15 +1,13 @@
-<h5> Wyniki: </h5>
-
-<table>
+<!--<table>
 <tr *ngFor="let item of (artifact | searchByName: searchText)">
   <td>{{item}}</td>
-  <!--<td>{{item.author}}</td> .name
-  <td>{{item.desc}}</td> -->
+  <td>{{item.author}}</td> .name
+  <td>{{item.desc}}</td>
   <td>
-    <button type="button" class="btn btn-secondary btn-sm" (click)="addItemToScenario(100)">Dodaj</button> <!-- item.id -->
+    <button type="button" class="btn btn-secondary btn-sm" (click)="addItemToScenario(item.id)">Dodaj</button>
   </td>
 </tr>
 </table>
-
-<h5> Wyniki 2: </h5>
+-->
+<h4> Wyniki wyszukiwania: </h4>
 <app-result-table></app-result-table>

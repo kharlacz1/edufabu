@@ -3,6 +3,7 @@ import {LandingComponent} from "./landing/landing.component";
 import {NotFoundComponent} from './not-found/not-found.component';
 import {NgModule} from '@angular/core';
 import {SearchComponent} from './search/search.component';
+import {ScenarioComponent} from './scenario/scenario.component';
 
 const appRoutes: Routes = [
   {
@@ -14,6 +15,11 @@ const appRoutes: Routes = [
     path: 'search',
     component: SearchComponent,
     data:{page: 'Search page'}
+  },
+  {
+    path: 'scenario',
+    component: ScenarioComponent,
+    data:{page: 'Scenario page'}
   },
   {
     path: '',

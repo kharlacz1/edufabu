@@ -1,5 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {NestedTreeControl} from '@angular/cdk/tree';
+import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { FormGroup, FormControl, FormBuilder} from '@angular/forms'
+
+interface DataSearchNode {
+  name: string;
+  children?: DataSearchNode[];
+}
+
+const TREE_DATA: DataSearchNode[] = [
+  {
+    name: 'Historia',
+    children: [
+      {name: 'XX wiek'},
+      {name: 'XXI wiek'},
+    ]
+  }, {
+    name: 'Historia sztuki',
+    children: [
+      {
+        name: 'Malarstwo',
+        children: [
+          {name: 'ekspresjonizm'},
+          {name: 'impresjonizm'},
+        ]
+      }, {
+        name: 'Rzeźba',
+        children: [
+          {name: 'ekspresjonizm'},
+          {name: 'impresjonizm'},
+        ]
+      },
+    ]
+  },
+];
+
 
 @Component({
   selector: 'app-landing',
@@ -8,22 +43,38 @@ import {FormControl} from '@angular/forms';
 })
 export class LandingComponent implements OnInit {
 
-/*  public readonly articleTilesInfo = [
-    new Artifact(0, "Piramida zwierząt", "Katarzyna Kozyra",  "4 wypreparowane zwierzęta – koń, pies, kot, kogut; wideo", "Granice prowokacji w sztuce - Piramida zwierząt wzbudziła wiele kontrowersji", "0"),
-    new Artifact(1, "Grafika - projekt okładki",  "Henryk Tomaszewski",  "projekt okładki Hotel Sztuki Zachęta – Narodowa Galeria Sztuki, Bosz, Warszawa 2014", "Skrócony opis 1", "1"),
-    new Artifact(2, "Naginanie konstrukcji",  " Monika Sosnowska",
-      "Prace nad zginaniem stalowej konstrukcji miały miejsce na terenie dawnego radzieckiego kołchozu, w którym niegdyś produkowano mleko, a dzisiaj mieści się tam biuro architektoniczne i zakład ślusarski. Struktura Sosnowskiej jest kopią, w skali 1 : 1, zwieńczenia hiperboloidalnej wieży radiowej zaprojektowanej dla moskiewskiej Szabolowki",
-      "Po inspiracjach polskim socmodernizmem i jego ruinami, blokowiskami, fabrykami domów czy straganami pozostałymi po warszawskim Stadionie Dziesięciolecia, jak również stylem międzynarodowym w wydaniu Bauhausu, De Stijlu i chicagowskich realizacji Ludwiga Miesa van der Rohe", "2"),
-    new Artifact(3, "video ZŁOTO I SREBRO",  "Joanna Rajkowska",  "Film Złoto i srebro jest zapisem wycieczki ojca artystki Andrzeja Rajkowskiego do miejsc, które są związane z ich rodzinną historią. Opowieść ta skupia się na rozpamiętywaniu fortuny", "Chemia: złoto / srebro", "0"),
-  ];
-*/
-  constructor() { }
+  treeControl = new NestedTreeControl<DataSearchNode>(node => node.children);
+  nodeDataSource = new MatTreeNestedDataSource<DataSearchNode>();
+  searchForm: string | null | undefined = "";
 
-  searchFormControl = new FormControl('', []);
+  reactiveForm = this.formBuilder.group({
+    searchFormControl: [''],
+    treeFormControl: [''],
+  });
 
   ngOnInit(): void {
 
   }
+
+  constructor(private formBuilder: FormBuilder) {
+    this.nodeDataSource.data = TREE_DATA;
+  }
+
+  hasChild = (_: number, node: DataSearchNode) => !!node.children && node.children.length > 0;
+
+  searchThis() {
+    let a = this.reactiveForm.get('searchFormControl')?.value;
+    console.log('a')
+    console.log(a)
+    this.searchForm = a;
+  }
+
+ /* onFormSubmit(data: any): void {
+    console.log('this.reactiveForm.get(searchFormControl:');
+    let val = this.reactiveForm.get('searchFormControl')?.value;
+    alert("Entered Email id : " + data.searchFormControl);
+    console.log(val);
+  } */
 
 }
 

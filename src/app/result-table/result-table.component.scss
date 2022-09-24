@@ -1,4 +1,18 @@
 .none {
-  background-color: white;
+  background-color: transparent;
   color: darkblue;
+}
+
+.mat-cell, .mat-header, .mat-header-cell {
+  color: darkblue;
+}
+
+.mat-header {
+  color: darkblue;
+}
+
+.btn {
+  cursor: pointer;
+  margin: 5px;
+  height: 120%;
 }

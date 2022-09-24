@@ -1,30 +1,62 @@
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-bottom: 10px;" >
-  <!-- class="none" -->
+<mat-table [dataSource]="dataSource" #table class="none mat-elevation-z8" style="margin: 10px;" >
+
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Nazwa </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    <mat-cell *matCellDef="let element">
+    <table>
+      <tr><td>{{element.name}}</td></tr>
+      <tr><td><b>{{element.author}}</b></td></tr>
+    </table>
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="img">
-    <mat-header-cell *matHeaderCellDef> img </mat-header-cell>
-    <mat-cell *matCellDef="let element"> <img src='./assets/img/{{element.img}}.jpg'> </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Obraz </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <img alt="{{element.name}}" src='./assets/img/{{element.img}}.jpg'>
+    </mat-cell>
+  </ng-container>
+  reference
+  <ng-container matColumnDef="desc">
+    <mat-header-cell *matHeaderCellDef> Opis </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <table>
+        <tr><td>{{element.desc}}</td></tr>
+        <tr><td>
+        <table>
+        <tr *ngFor="let item of element.tags">
+          <td> <button >#{{item}}</button></td>
+        </tr>
+        </table>
+        </td></tr>
+      </table>
+    </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="author">
-    <mat-header-cell *matHeaderCellDef> Nazwisko </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
-  </ng-container>
-
-<!--  <ng-container matColumnDef="opis">
-    <mat-header-cell *matHeaderCellDef> desc </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.desc}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="odniesienie">
-    <mat-header-cell *matHeaderCellDef> reference </mat-header-cell>
+  <ng-container matColumnDef="reference">
+    <mat-header-cell *matHeaderCellDef> Czy wiesz... </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.reference}} </mat-cell>
   </ng-container>
--->
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <table>
+        <tr><td> <button mat-stroked-button class="btn btn-secondary" (click)="addItemToScenario(element.id)">
+          <span class="material-icons">add_circle_outline</span>
+          Dodaj do scenariusza</button></td></tr>
+        <tr><td> <button mat-stroked-button class="btn btn-secondary" disabled (click)="addNewTag(element.id)">
+          <span class="material-icons">bookmark_border</span>
+          Dodaj nowy tag</button></td>
+        </tr>
+        <tr><td> <button mat-stroked-button class="btn btn-secondary" >
+          <span class="material-icons">record_voice_over</span>
+          Odczytaj...</button></td>
+        </tr>
+      </table>
+    </mat-cell>
+  </ng-container>
+
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
